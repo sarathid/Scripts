@@ -15,4 +15,5 @@
 def print_list(head):
     while head:
         print head.data
+        print
         head = head.next
