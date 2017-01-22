@@ -13,7 +13,10 @@ def vectorMag(v):
 	return Decimal(sqrt(sum([(Decimal(x))**2 for x in v])))
 
 def vector_add(v,w):
-	return 
+	return [(Decimal(x[0]))+(Decimal(x[1])) for x in zip(v,w)]
+
+def vector_sub(v,w):
+	return [(Decimal(x[0]))-(Decimal(x[1])) for x in zip(v,w)]
 
 def dot_prod(v,w):
 	return sum([(Decimal(x[0]))*(Decimal(x[1])) for x in zip(v,w)])
@@ -31,9 +34,9 @@ def mulVector(v, m):
 
 def angle(v,w, deg=False):
 	try:
-		print vectorMag(v)
-		print vectorMag(w)
-		print dot_prod(v,w)
+		# print vectorMag(v)
+		# print vectorMag(w)
+		# print dot_prod(v,w)
 		r = acos(dot_prod(v,w)/(vectorMag(v)*vectorMag(w)))
 		return r if deg is False else degrees((Decimal(r)))
 	except:
@@ -46,19 +49,35 @@ def angle(v,w, deg=False):
 # print angle([-2.328,-7.284,-1.214],[-1.821,1.072,-2.94])
 # print angle([2.118,4.827],[0, 0])
 
-v = [3.039, 1.879]
-b = [0.825, 2.036]
-ub = unit_vector(b)
-print ub
-dpub = dot_prod(v, ub)
+# v = [3.039, 1.879]
+# b = [0.825, 2.036]
+# ub = unit_vector(b)
+# print ub
+# dpub = dot_prod(v, ub)
 
-if angle(v,b, True)>=90:
-	dpub = -dpub
+# if angle(v,b, True)>=90:
+# 	dpub = -dpub
 
-print 'Mul ', mulVector(ub, dpub)
+# print 'Mul ', mulVector(ub, dpub)
 
-v = [-9.88, -3.264, -8.159]
-b = [-2.155, -9.353, -9.473]
+# v = [-9.88, -3.264, -8.159]
+# b = [-2.155, -9.353, -9.473]
+# ub = unit_vector(b)
+# print 'Unit vector', ub
+# dpub = dot_prod(v, ub)
+# print 'Dot prod',dpub
+# print 'Angle',angle(v,b, True)
+
+# if angle(v,b, True)>=90:
+# 	dpub = -dpub
+
+# vp = mulVector(ub, dpub)
+# vper = vector_sub(v, vp)
+# print 'Vector parallel', vper
+
+
+v = [3.009, -6.172, 3.692, -2.51]
+b = [6.404, -9.144, 2.759, 8.718]
 ub = unit_vector(b)
 print ub
 dpub = dot_prod(v, ub)
@@ -67,5 +86,6 @@ if angle(v,b, True)>=90:
 	dpub = -dpub
 
 vp = mulVector(ub, dpub)
-vper = 
-
+vper = vector_sub(v, vp)
+print 'Vector Parallel',vp 
+print 'Vector perp', vper
