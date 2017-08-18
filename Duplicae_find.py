@@ -1,9 +1,9 @@
 import os
 
-log = r"/home/parthasaradhi/Flog.txt"
+log = r""
 
 flog = open(log,'w')
-path = r'/media/parthasaradhi/Seagate Backup Plus Drive'
+path = r''
 file_map = {}
 for folder,subfolder,files in os.walk(path):
 	for f in files:
